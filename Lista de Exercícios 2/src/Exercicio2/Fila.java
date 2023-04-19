@@ -46,7 +46,7 @@ public class Fila
 	{
 	  int fim;
 	  
-	  if ( !cheia() ) {
+	  if (!cheia()) {
 	    fim = (ini + n) % tamanho;
 	    vetor[fim] = elemento;
 	    n++;
@@ -67,7 +67,7 @@ public class Fila
 			else if(!f2.vazia() && !cheia())
 				insere(f2.remove());
 			
-			else if(cheia() || (f1.vazia() && f2.vazia()) )
+			else
 				continuar = false;
 		}
 	}
