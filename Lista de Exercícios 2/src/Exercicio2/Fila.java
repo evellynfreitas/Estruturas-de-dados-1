@@ -64,10 +64,10 @@ public class Fila
 			if(!f1.vazia() && !cheia())
 				insere(f1.remove());
 			
-			else if(!f2.vazia() && !cheia())
+			if(!f2.vazia() && !cheia())
 				insere(f2.remove());
 			
-			else
+			if((f1.vazia()&&f2.vazia())||cheia())
 				continuar = false;
 		}
 	}

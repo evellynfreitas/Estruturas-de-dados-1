@@ -34,7 +34,6 @@ package Exercicio5;
 	public boolean insereCliente(Cliente c)
 	{
 		if(c.eIdoso()) {
-			System.out.println("oi");
 			if(insereIdoso(c)) { //idoso entra na frente dos adultos
 				qtdIdosos++;
 				return true;
@@ -114,8 +113,6 @@ package Exercicio5;
 		   return false;
 	}
 	
-	
-	
 	//Retiramos o cliente no início da fila
 	public Cliente remove()
 	{
@@ -133,8 +130,6 @@ package Exercicio5;
 
 	
 	public void imprime() {
-		System.out.println(n);
-		
 		
 		int i, j;
 		

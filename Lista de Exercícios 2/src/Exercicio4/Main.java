@@ -16,12 +16,13 @@ public class Main {
 		
 		filaDupla.removeFim();
 		filaDupla.remove();
+		
 		filaDupla.imprime();
-
 		System.out.println();
 		
 		filaDupla.insere(9);
 		filaDupla.insereInicio(8);
+		
 		filaDupla.imprime();
 	}
 
