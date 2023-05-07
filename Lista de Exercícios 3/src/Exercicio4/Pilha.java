@@ -2,21 +2,24 @@ package Exercicio4;
 public class Pilha
 {
 	private int n;
-	private char vetor[];
+	private int vetor[];
 	private int topo;
+	private int pares;
 	
 	public Pilha()
 	{
 		n = 10;
-		vetor = new char[n];
+		vetor = new int[n];
 		topo = -1;
+		pares = 0;
 	}
 	
 	public Pilha(int tamanho)
 	{
 		n = tamanho;
-		vetor = new char[tamanho];
+		vetor = new int[tamanho];
 		topo = -1;
+		pares = 0;
 	}
 	
 	public boolean vazia()
@@ -29,14 +32,16 @@ public class Pilha
 		return topo == n - 1 ? true : false;
 	}
 	
-	public char pop()
+	public int pop()
 	{
-		char c = '\0';
+		int elemento = Integer.MIN_VALUE;
 		
 		if (!this.vazia())
 		{
-			c = vetor[topo];
+			elemento = vetor[topo];
 			
+			if(elemento%2==0)
+				pares--;
 			//Decrementando o topo, o elemento é "removido"
 			topo--;
 		}
@@ -46,14 +51,18 @@ public class Pilha
 			System.out.println("Pilha vazia: pop não funcionou.");
 		}
 		
-		return c;
+		return elemento;
 	}
 	
-	public boolean push(char elemento)
+	public boolean push(int elemento)
 	{
 		if (!this.cheia())
 		{
 			vetor[++topo] = elemento;
+			
+			if(elemento%2==0)
+				pares++;
+			
 			return true;
 		}
 		else
@@ -64,9 +73,9 @@ public class Pilha
 		}
 	}
 	
-	public char retornaTopo()
+	public int retornaTopo()
 	{
-		char elemento = '\0';
+		int elemento = Integer.MIN_VALUE;
 
 		if(!this.vazia())
 		{
@@ -80,16 +89,8 @@ public class Pilha
 		return elemento;
 	}
 
-	public int contadorPares() {
-		int pares = 0;
-		for(int i=0; i<n; i+=2) {
-			
-			int num = this.pop();
-			if(num%2 == 0)
-				pares++;
-				
-		}
-		
+	public int contaPares() {
 		return pares;
 	}
+
 }
