@@ -79,4 +79,17 @@ public class Pilha
 
 		return elemento;
 	}
+
+	public int contadorPares() {
+		int pares = 0;
+		for(int i=0; i<n; i+=2) {
+			
+			int num = this.pop();
+			if(num%2 == 0)
+				pares++;
+				
+		}
+		
+		return pares;
+	}
 }
