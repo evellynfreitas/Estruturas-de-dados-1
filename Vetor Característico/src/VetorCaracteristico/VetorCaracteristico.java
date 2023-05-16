@@ -18,7 +18,6 @@ public class VetorCaracteristico {
 			return true;
 		}
 	}
-
 	
 	public boolean removerElemento(int x) {
 		if(x > tamanho || x <= 0)
@@ -38,6 +37,11 @@ public class VetorCaracteristico {
 			else
 				return true;
 		}
+	}
+	
+	public void esvaziarConjunto() {
+		for(int i = 0;i < tamanho; i++)
+			vetor[i] = 0;
 	}
 	
 }
