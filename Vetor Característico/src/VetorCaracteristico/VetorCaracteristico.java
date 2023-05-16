@@ -69,6 +69,15 @@ public class VetorCaracteristico {
 		return vetor[indice];
 	}
 	
+	public boolean verificaSubProprio() {
+		for(int i = 0; i < tamanho; i++) {
+			if(vetor[i] == 0)
+				return true;
+		}
+		return false;
+	}
+	
+	
 	public static VetorCaracteristico uniao(VetorCaracteristico c1, VetorCaracteristico c2, int tamanhoUniverso) {
 		VetorCaracteristico v = new VetorCaracteristico(tamanhoUniverso);
 		
