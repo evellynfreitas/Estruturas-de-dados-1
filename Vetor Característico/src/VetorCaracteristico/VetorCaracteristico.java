@@ -79,4 +79,15 @@ public class VetorCaracteristico {
 		
 		return v;
 	}
+	
+	public static VetorCaracteristico intersecao(VetorCaracteristico c1, VetorCaracteristico c2, int tamanhoUniverso) {
+		VetorCaracteristico v = new VetorCaracteristico(tamanhoUniverso);
+		
+		for(int i = 0; i < tamanhoUniverso; i++) {
+			if(c1.retornaPeloIndice(i) * c2.retornaPeloIndice(i) != 0)
+				v.inserirElemento(i);
+		}
+		
+		return v;
+	}
 }
