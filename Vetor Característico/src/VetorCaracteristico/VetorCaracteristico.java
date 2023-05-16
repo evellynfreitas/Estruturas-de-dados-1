@@ -48,4 +48,11 @@ public class VetorCaracteristico {
 		return tamanho;
 	}
 	
+	public boolean verificaVazio() {
+		for(int i = 0; i < tamanho; i++) {
+			if(vetor[i] == 1)
+				return false;
+		}
+		return true;
+	}
 }
