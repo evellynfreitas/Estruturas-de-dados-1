@@ -63,4 +63,8 @@ public class VetorCaracteristico {
 		}
 		return true;
 	}
+	
+	public int retornaValorPeloIndice(int indice) {
+		return vetor[indice];
+	}
 }
