@@ -29,4 +29,15 @@ public class VetorCaracteristico {
 		}
 	}
 	
+	public boolean verificarPertinencia(int x) {
+		if(x > tamanho || x <= 0)
+			return false;
+		else {
+			if(vetor[x-1] == 0)
+				return false;
+			else
+				return true;
+		}
+	}
+	
 }
