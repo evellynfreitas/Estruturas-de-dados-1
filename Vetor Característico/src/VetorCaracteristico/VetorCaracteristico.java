@@ -18,4 +18,15 @@ public class VetorCaracteristico {
 			return true;
 		}
 	}
+
+	
+	public boolean removerElemento(int x) {
+		if(x > tamanho || x <= 0)
+			return false;
+		else {
+			vetor[x-1] = 0;
+			return true;
+		}
+	}
+	
 }
