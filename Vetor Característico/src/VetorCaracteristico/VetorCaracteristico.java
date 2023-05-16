@@ -8,6 +8,7 @@ public class VetorCaracteristico {
 	public VetorCaracteristico(int n) {
 		tamanho = n;
 		vetor = new int[tamanho];
+		esvaziarConjunto();
 	}
 	
 	public boolean inserirElemento(int x) {
@@ -68,4 +69,14 @@ public class VetorCaracteristico {
 		return vetor[indice];
 	}
 	
+	public static VetorCaracteristico uniao(VetorCaracteristico c1, VetorCaracteristico c2, int tamanhoUniverso) {
+		VetorCaracteristico v = new VetorCaracteristico(tamanhoUniverso);
+		
+		for(int i = 0; i < tamanhoUniverso; i++) {
+			if(c1.retornaPeloIndice(i) + c2.retornaPeloIndice(i) != 0)
+				v.inserirElemento(i);
+		}
+		
+		return v;
+	}
 }
