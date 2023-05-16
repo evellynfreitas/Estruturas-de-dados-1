@@ -55,4 +55,12 @@ public class VetorCaracteristico {
 		}
 		return true;
 	}
+	
+	public boolean verificaUniverso() {
+		for(int i = 0; i < tamanho; i++) {
+			if(vetor[i] == 0)
+				return false;
+		}
+		return true;
+	}
 }
