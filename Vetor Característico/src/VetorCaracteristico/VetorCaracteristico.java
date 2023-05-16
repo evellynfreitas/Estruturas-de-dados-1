@@ -40,8 +40,12 @@ public class VetorCaracteristico {
 	}
 	
 	public void esvaziarConjunto() {
-		for(int i = 0;i < tamanho; i++)
+		for(int i = 0; i < tamanho; i++)
 			vetor[i] = 0;
+	}
+	
+	public int retornaCardinalidade() {
+		return tamanho;
 	}
 	
 }
