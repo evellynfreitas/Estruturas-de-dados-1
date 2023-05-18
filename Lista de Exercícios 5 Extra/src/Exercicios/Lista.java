@@ -176,5 +176,15 @@ public class Lista
 		return 1 + tamanhoRecursivo(p.prox);
 	}
 	
-	
+	public int max() {
+		int maximo = 0;
+		Elo p;
+		
+		for(p = prim; p != null; p = p.prox) {
+			if(p.dado > maximo)
+				maximo = p.dado;
+		}
+			
+		return maximo;
+	}
 }
