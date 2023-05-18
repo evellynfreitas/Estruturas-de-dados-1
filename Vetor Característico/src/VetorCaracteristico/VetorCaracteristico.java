@@ -107,5 +107,12 @@ public class VetorCaracteristico {
 		return Integer.MIN_VALUE;
 	}
 	
+	public int retornaMaior() {
+		for(int i=tamanho-1; i>=0; i--)
+			if(vetor[i]==1)
+				return vetor[i];
+		
+		return Integer.MAX_VALUE;
+	}
 	
 }
