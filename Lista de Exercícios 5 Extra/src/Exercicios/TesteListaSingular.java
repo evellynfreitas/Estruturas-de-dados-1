@@ -64,7 +64,7 @@ public class TesteListaSingular
 				break;
 			case 5:
 				System.out.println("--------------------------\n");
-				System.out.println("Elemento Mínimo: "+lista.min()+"\n");
+				System.out.println("Elemento Mínimo: "+lista.minRecursivo()+"\n");
 				break;
 			}
 

@@ -229,5 +229,23 @@ public class Lista
 		}
 	}
 	
+	public int minRecursivo() {
+		if(this.vazia())
+			return 0;
+		else
+			return minRecursivo(prim);
+	}
 	
+	private int minRecursivo(Elo p) {
+		if(p == null)
+			return Integer.MAX_VALUE;
+		else {
+			int menor = minRecursivo(p.prox);
+			
+			if(p.dado < menor)
+				menor = p.dado;
+			
+			return menor;
+		}
+	}
 }
