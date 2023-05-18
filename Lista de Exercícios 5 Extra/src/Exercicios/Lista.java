@@ -248,4 +248,20 @@ public class Lista
 			return menor;
 		}
 	}
+	
+	
+	public Lista separa(int n) {
+		Lista aux = new Lista();
+		
+		Elo p;
+		for(p=prim; p!=null; p=p.prox) {
+			if(p.dado == n) {
+				aux.prim = p.prox;
+				p.prox = null;
+				return aux;
+			}
+		}
+		
+		return null;
+	}
 }

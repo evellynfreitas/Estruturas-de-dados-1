@@ -16,6 +16,7 @@ public class TesteListaSingular
 		System.out.println("3. Imprime elementos da lista.\n");
 		System.out.println("4. Imprime o maior elemento da lista.\n");
 		System.out.println("5. Imprime o menor elemento da lista.\n");
+		System.out.println("6. Divide a lista\n");
 		System.out.println("0. Fim.\n");
 		System.out.print("Sua opcao: ");
 
@@ -65,6 +66,15 @@ public class TesteListaSingular
 			case 5:
 				System.out.println("--------------------------\n");
 				System.out.println("Elemento Mínimo: "+lista.minRecursivo()+"\n");
+				break;
+			case 6:
+				System.out.println("--------------------------\n");
+				System.out.println("Dividir listas: \n");
+				System.out.println("Entre com o N: ");
+				int n = scanner.nextInt();
+				Lista lista2 = lista.separa(n);
+				System.out.println("\nLista 1: "); lista.imprimeRecursivo();
+				System.out.println("\nLista 2: "); lista2.imprimeRecursivo();
 				break;
 			}
 
