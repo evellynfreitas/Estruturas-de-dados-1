@@ -17,6 +17,7 @@ public class TesteListaSingular
 		System.out.println("4. Imprime o maior elemento da lista.\n");
 		System.out.println("5. Imprime o menor elemento da lista.\n");
 		System.out.println("6. Divide a lista\n");
+		System.out.println("7. Concatena duas listas\n");
 		System.out.println("0. Fim.\n");
 		System.out.print("Sua opcao: ");
 
@@ -75,6 +76,24 @@ public class TesteListaSingular
 				Lista lista2 = lista.separa(n);
 				System.out.println("\nLista 1: "); lista.imprimeRecursivo();
 				System.out.println("\nLista 2: "); lista2.imprimeRecursivo();
+				break;
+			case 7:
+				System.out.println("--------------------------\n");
+				System.out.println("Concatenar listas: \n");
+				
+				lista2 = new Lista();
+				lista2.insere(9);lista2.insere(8);lista2.insere(7);lista2.insere(6);
+				lista = Lista.concatena(lista,lista2);
+				System.out.println("Lista nova: "); lista.imprimeRecursivo();
+				break;
+			case 8:
+				System.out.println("--------------------------\n");
+				System.out.println("Concatenar listas: \n");
+				
+				lista2 = new Lista();
+				lista2.insere(9);lista2.insere(8);lista2.insere(7);lista2.insere(6);
+				lista = Lista.concatena(lista,lista2);
+				System.out.println("Lista nova: "); lista.imprimeRecursivo();
 				break;
 			}
 

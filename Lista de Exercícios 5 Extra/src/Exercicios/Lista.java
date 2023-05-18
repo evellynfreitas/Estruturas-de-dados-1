@@ -264,4 +264,30 @@ public class Lista
 		
 		return null;
 	}
+
+
+	public static Lista concatena(Lista l1, Lista l2) {
+		
+		if(l1.vazia()) {
+			l1.prim = l2.prim;
+			l2.prim = null;
+		}
+		else {
+			
+			Elo p;
+			
+			for(p=l1.prim;p!=null;p=p.prox) {
+				if(p.prox == null) {
+					p.prox = l2.prim;
+					l2.prim = null;
+					break;
+				}
+			}
+		}
+		
+		return l1;
+	}
+
+
+
 }
