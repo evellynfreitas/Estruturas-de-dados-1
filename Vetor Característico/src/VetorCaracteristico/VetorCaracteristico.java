@@ -99,5 +99,13 @@ public class VetorCaracteristico {
 		return this;
 	}
 
+	public int retornaMenor() {
+		for(int i=0; i<tamanho; i++)
+			if(vetor[i]==1)
+				return vetor[i];
+		
+		return Integer.MIN_VALUE;
+	}
+	
 	
 }
