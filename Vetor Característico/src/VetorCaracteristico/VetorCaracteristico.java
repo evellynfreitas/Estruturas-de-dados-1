@@ -77,16 +77,14 @@ public class VetorCaracteristico {
 		return false;
 	}
 	
-	
-	public static VetorCaracteristico uniao(VetorCaracteristico c1, VetorCaracteristico c2, int tamanhoUniverso) {
-		VetorCaracteristico v = new VetorCaracteristico(tamanhoUniverso);
+	public VetorCaracteristico uniao(VetorCaracteristico c1) {
 		
-		for(int i = 0; i < tamanhoUniverso; i++) {
-			if(c1.retornaPeloIndice(i) + c2.retornaPeloIndice(i) != 0)
-				v.inserirElemento(i);
+		for(int i = 0; i < tamanho; i++) {
+			if(this.vetor[i] + c1.vetor[i] > 0)
+				this.vetor[i] = 1;
 		}
 		
-		return v;
+		return this;
 	}
 	
 	public static VetorCaracteristico intersecao(VetorCaracteristico c1, VetorCaracteristico c2, int tamanhoUniverso) {
@@ -99,4 +97,6 @@ public class VetorCaracteristico {
 		
 		return v;
 	}
+
+	
 }
