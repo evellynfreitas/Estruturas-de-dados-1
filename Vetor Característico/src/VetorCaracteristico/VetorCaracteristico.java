@@ -74,13 +74,14 @@ public class VetorCaracteristico {
 	}
 	
 	public VetorCaracteristico uniao(VetorCaracteristico c1) {
+		VetorCaracteristico v = new VetorCaracteristico(tamanho);
 		
 		for(int i = 0; i < tamanho; i++) {
 			if(this.vetor[i] + c1.vetor[i] > 0)
-				this.vetor[i] = 1;
+				v.vetor[i] = 1;
 		}
 		
-		return this;
+		return v;
 	}
 	
 	public VetorCaracteristico intersecao(VetorCaracteristico c1) {
