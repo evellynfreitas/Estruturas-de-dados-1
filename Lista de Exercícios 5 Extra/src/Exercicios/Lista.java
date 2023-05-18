@@ -177,14 +177,43 @@ public class Lista
 	}
 	
 	public int max() {
-		int maximo = 0;
+		
+		if(this.vazia())
+			return 0;
+		
+		int maior = Integer.MIN_VALUE;
 		Elo p;
 		
 		for(p = prim; p != null; p = p.prox) {
-			if(p.dado > maximo)
-				maximo = p.dado;
+			if(p.dado > maior)
+				maior = p.dado;
 		}
 			
-		return maximo;
+		return maior;
 	}
+	
+	public int maxRecursivo() {
+		
+		if(this.vazia())
+			return 0;
+		else
+			return maxRecursivo(prim);
+	}
+	
+	private int maxRecursivo(Elo p) {
+		if(p == null)
+			return Integer.MIN_VALUE;
+		
+		else{
+			int maior = maxRecursivo(p.prox);
+			
+			if(p.dado > maior)
+				maior = p.dado;
+			
+			return maior;
+		}
+	}
+
+
+	
 }

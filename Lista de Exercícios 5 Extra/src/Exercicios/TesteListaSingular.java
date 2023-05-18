@@ -14,11 +14,12 @@ public class TesteListaSingular
 		System.out.println("1. Insere elemento (no. inteiro) na lista\n");
 		System.out.println("2. Remove elemento (no. inteiro) da lista\n");
 		System.out.println("3. Imprime elementos da lista.\n");
+		System.out.println("4. Imprime o maior elemento da lista.\n");
 		System.out.println("0. Fim.\n");
 		System.out.println("Sua opcao: ");
 
 		escolha = scanner.nextInt();
-
+		
 		return escolha;
 	}
 	
@@ -37,11 +38,13 @@ public class TesteListaSingular
 			case 0: /* Não faz nada. */
 				break;
 			case 1:
+				System.out.println("--------------------------\n");
 				System.out.println("Entre com elemento para inserir: ");
 				elem = scanner.nextInt();
 				lista.insere(elem);
 				break;
 			case 2:
+				System.out.println("--------------------------\n");
 				System.out.println("Entre com elemento para remover: ");
 				elem = scanner.nextInt();
 				if (lista.remove(elem))
@@ -50,8 +53,13 @@ public class TesteListaSingular
 					System.out.println("Elemento não existe!\n");
 				break;
 			case 3:
+				System.out.println("--------------------------\n");
 				System.out.println("Conteúdo da lista:\n");
 				lista.imprimeRecursivo();
+				break;
+			case 4:
+				System.out.println("--------------------------\n");
+				System.out.println("Elemento Máximo: "+lista.maxRecursivo()+"\n");
 				break;
 			}
 
