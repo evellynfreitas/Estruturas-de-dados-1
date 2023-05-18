@@ -215,5 +215,19 @@ public class Lista
 	}
 
 
+	public int min() {
+		if(this.vazia())
+			return 0;
+		else {
+			Elo p;
+			int menor = Integer.MAX_VALUE;
+			for(p = prim; p!=null; p = p.prox)
+				if(p.dado < menor)
+					menor = p.dado;
+			
+			return menor;
+		}
+	}
+	
 	
 }

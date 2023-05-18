@@ -15,8 +15,9 @@ public class TesteListaSingular
 		System.out.println("2. Remove elemento (no. inteiro) da lista\n");
 		System.out.println("3. Imprime elementos da lista.\n");
 		System.out.println("4. Imprime o maior elemento da lista.\n");
+		System.out.println("5. Imprime o menor elemento da lista.\n");
 		System.out.println("0. Fim.\n");
-		System.out.println("Sua opcao: ");
+		System.out.print("Sua opcao: ");
 
 		escolha = scanner.nextInt();
 		
@@ -60,6 +61,10 @@ public class TesteListaSingular
 			case 4:
 				System.out.println("--------------------------\n");
 				System.out.println("Elemento Máximo: "+lista.maxRecursivo()+"\n");
+				break;
+			case 5:
+				System.out.println("--------------------------\n");
+				System.out.println("Elemento Mínimo: "+lista.min()+"\n");
 				break;
 			}
 
