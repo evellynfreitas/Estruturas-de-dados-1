@@ -64,11 +64,7 @@ public class VetorCaracteristico {
 		}
 		return true;
 	}
-	
-	public int retornaPeloIndice(int indice) {
-		return vetor[indice];
-	}
-	
+		
 	public boolean verificaSubProprio() {
 		for(int i = 0; i < tamanho; i++) {
 			if(vetor[i] == 0)
