@@ -65,6 +65,25 @@ public class VetorCaracteristico {
 		return true;
 	}
 		
+	public boolean verificaSubConjunto(VetorCaracteristico v) {
+		
+		for(int i=0; i < v.tamanho; i++) {
+			
+			if(i<this.tamanho) {
+				
+				if(this.vetor[i]!=v.vetor[i])
+					return false;
+			}
+			else {
+				
+				if(v.vetor[i]==1)
+					return false;
+			}
+			
+		}
+		return true;
+	}
+	
 	public boolean verificaSubProprio() {
 		for(int i = 0; i < tamanho; i++) {
 			if(vetor[i] == 0)
@@ -112,4 +131,5 @@ public class VetorCaracteristico {
 		return Integer.MAX_VALUE;
 	}
 	
+
 }
