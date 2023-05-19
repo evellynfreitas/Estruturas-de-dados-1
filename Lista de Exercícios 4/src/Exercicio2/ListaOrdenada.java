@@ -45,4 +45,43 @@ public class ListaOrdenada extends Lista
 		
 		return true;
 	}
+
+	public static ListaOrdenada concatena(ListaOrdenada l1, ListaOrdenada l2) {
+		ListaOrdenada nova = new ListaOrdenada();
+		
+		Elo p1 = l1.prim;
+		Elo p2 = l2.prim;
+		
+		while(p1!=null || p2!=null) {
+			
+			if(p1!=null && p2!= null) {
+				System.out.println(p1.dado +" , "+ p2.dado);
+				if(p1.dado < p2.dado) {
+					nova.insere(p1.dado);
+					p1 = p1.prox;
+				}
+				else if(p1.dado > p2.dado) {
+					nova.insere(p2.dado);
+					p2 = p2.prox;
+				}
+				else {
+					nova.insere(p1.dado);
+					p1 = p1.prox;
+					p2 = p2.prox;
+				}
+			}
+			else if(p1==null) {
+				System.out.println("null , "+ p2.dado);
+				nova.insere(p2.dado);
+				p2 = p2.prox;
+			}
+			else if(p2==null) {
+				System.out.println(p1.dado + ", null");
+				nova.insere(p1.dado);
+				p1 = p1.prox;
+			}
+		}
+		
+		return nova;
+	}
 }
