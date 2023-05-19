@@ -71,7 +71,7 @@ public class VetorCaracteristico {
 			
 			if(i<this.tamanho) {
 				
-				if(this.vetor[i]!=v.vetor[i])
+				if(this.vetor[i]==0 && v.vetor[i]==1)
 					return false;
 			}
 			else {
