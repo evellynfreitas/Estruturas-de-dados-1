@@ -10,10 +10,10 @@ public class VetorCaracteristico {
 		tamanho = n;
 		vetor = new boolean[tamanho+1];
 		cardinalidade = 0;
-		esvaziarConjunto();
+		esvazia();
 	}
 	
-	public boolean inserirElemento(int n) {
+	public boolean insere(int n) {
 		if(n > tamanho || n <= 0)
 			return false;
 		else {
@@ -23,7 +23,7 @@ public class VetorCaracteristico {
 		}
 	}
 	
-	public boolean removerElemento(int n) {
+	public boolean remove(int n) {
 		if(n > tamanho || n <= 0)
 			return false;
 		else {
@@ -33,7 +33,7 @@ public class VetorCaracteristico {
 		}
 	}
 	
-	public boolean verificarPertinencia(int n) {
+	public boolean pertence(int n) {
 		if(n > tamanho || n <= 0)
 			return false;
 		else
@@ -41,12 +41,12 @@ public class VetorCaracteristico {
 		
 	}
 	
-	public void esvaziarConjunto() {
+	public void esvazia() {
 		for(int i = 1; i <= tamanho; i++)
 			vetor[i] = false;
 	}
 	
-	public int retornaCardinalidade() {
+	public int cardinalidade() {
 		return cardinalidade;
 	}
 	
@@ -166,7 +166,7 @@ public class VetorCaracteristico {
 		
 	}
 
-	public int retornaMenor() {
+	public int menor() {
 		for(int i=1; i<=tamanho; i++)
 			if(vetor[i])
 				return i;
@@ -174,7 +174,7 @@ public class VetorCaracteristico {
 		return Integer.MIN_VALUE;
 	}
 	
-	public int retornaMaior() {
+	public int maior() {
 		for(int i=tamanho; i>=1; i--)
 			if(vetor[i])
 				return i;
