@@ -98,11 +98,11 @@ public class VetorCaracteristico {
 				else if(this.vetor[i]==1 && v.vetor[i]==0)
 					a++;
 			}
-			else if(i<this.tamanho && i>= v.tamanho) {
+			else if(i<this.tamanho) {
 				if(this.vetor[i]==1)
 					a++;
 			}
-			else if(i>=this.tamanho && i<v.tamanho) {
+			else if(i<v.tamanho) {
 				if(v.vetor[i]==1)
 					return false;
 			}
@@ -116,11 +116,29 @@ public class VetorCaracteristico {
 	}
 	
 	public VetorCaracteristico uniao(VetorCaracteristico c1) {
-		VetorCaracteristico v = new VetorCaracteristico(tamanho);
 		
-		for(int i = 0; i < tamanho; i++) {
-			if(this.vetor[i] + c1.vetor[i] > 0)
+		int tam;
+		
+		if(c1.tamanho > this.tamanho)
+			tam = c1.tamanho;
+		else
+			tam = this.tamanho;
+		
+		VetorCaracteristico v = new VetorCaracteristico(tam);
+		
+		for(int i = 0; i < tam; i++) {
+			
+			if(i < this.tamanho && i < c1.tamanho) {
+				if(this.vetor[i] + c1.vetor[i] > 0)
+					v.vetor[i] = 1;
+
+			}
+			else if (i < this.tamanho && this.vetor[i] == 1)
 				v.vetor[i] = 1;
+			
+			else if (i < c1.tamanho && c1.vetor[i] == 1)
+				v.vetor[i] = 1;
+			
 		}
 		
 		return v;
@@ -128,14 +146,25 @@ public class VetorCaracteristico {
 	
 	public VetorCaracteristico intersecao(VetorCaracteristico c1) {
 		
-		for(int i = 0; i < tamanho; i++) {
-			if(this.vetor[i] * c1.vetor[i] == 1)
-				this.vetor[i] = 1;
-			else
-				this.vetor[i] = 0;
+		int tam;
+		
+		if(c1.tamanho > this.tamanho)
+			tam = c1.tamanho;
+		else
+			tam = this.tamanho;
+		
+		VetorCaracteristico v = new VetorCaracteristico(tam);
+		
+		for(int i = 0; i < tam; i++) {
+			
+			if(i < this.tamanho && i < c1.tamanho) {
+				if(this.vetor[i] * c1.vetor[i] == 1)
+					v.vetor[i] = 1;
+			}
 		}
 		
-		return this;
+		return v;
+		
 	}
 
 	public int retornaMenor() {
