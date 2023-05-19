@@ -84,12 +84,35 @@ public class VetorCaracteristico {
 		return true;
 	}
 	
-	public boolean verificaSubProprio() {
-		for(int i = 0; i < tamanho; i++) {
-			if(vetor[i] == 0)
-				return true;
+	public boolean verificaSubProprio(VetorCaracteristico v) {
+		
+		int a = 0;
+		
+		for(int i=0; i < v.tamanho||i<this.tamanho; i++) {
+			
+			if(i<this.tamanho && i< v.tamanho) {
+				
+				if(this.vetor[i]==0 && v.vetor[i]==1)
+					return false;
+				
+				else if(this.vetor[i]==1 && v.vetor[i]==0)
+					a++;
+			}
+			else if(i<this.tamanho && i>= v.tamanho) {
+				if(this.vetor[i]==1)
+					a++;
+			}
+			else if(i>=this.tamanho && i<v.tamanho) {
+				if(v.vetor[i]==1)
+					return false;
+			}
+			
 		}
-		return false;
+		
+		if(a>0)
+			return true;
+		else
+			return false;
 	}
 	
 	public VetorCaracteristico uniao(VetorCaracteristico c1) {
