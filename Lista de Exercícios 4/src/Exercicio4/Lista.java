@@ -1,4 +1,4 @@
-package Exercicio1;
+package Exercicio4;
 
 public class Lista
 {
@@ -8,7 +8,7 @@ public class Lista
 	
 	protected class Elo
 	{
-		protected int dado;
+		protected String dado;
 		protected Elo prox;
 		
 		public Elo()
@@ -16,13 +16,13 @@ public class Lista
 			prox = null;
 		}
 		
-		public Elo(int elem)
+		public Elo(String elem)
 		{
 			dado = elem;
 			prox = null;
 		}
 		
-		public Elo(int elem, Elo proxElem)
+		public Elo(String elem, Elo proxElem)
 		{
 			dado = elem;
 			prox = proxElem;
@@ -42,7 +42,7 @@ public class Lista
 	}
 	
 	/* Insere elemento no início da lista. */
-	public void insere(int novo)
+	public void insere(String novo)
 	{
 		Elo p = new Elo(novo);
 		p.prox = prim;
@@ -51,13 +51,13 @@ public class Lista
 	}
 	
 	/* Verifica se um determinado elemento está na lista. */
-	public boolean busca(int elem)
+	public boolean busca(String elem)
 	{
 		Elo p;
 		
 		for(p = prim; p != null; p = p.prox)
 		{
-			if(p.dado == elem)
+			if(p.dado.equals(elem))
 				return true;
 		}
 		
@@ -65,7 +65,7 @@ public class Lista
 	}
 	
 	/* Implementação recursiva do método de busca. */
-	public boolean buscaRecursiva(int elem)
+	public boolean buscaRecursiva(String elem)
 	{
 		if(this.vazia())
 			return false;
@@ -73,24 +73,24 @@ public class Lista
 		return buscaRecursiva(elem, prim);
 	}
 	
-	private boolean buscaRecursiva(int elem, Elo p)
+	private boolean buscaRecursiva(String elem, Elo p)
 	{
 		if(p == null)
 			return false;
 		
-		if(p.dado == elem)
+		if(p.dado.equals(elem))
 			return true;
 		
 		return buscaRecursiva(elem, p.prox);
 	}
 
 	/* Remove da lista o primeiro elemento com valor igual a “elem". Ret. true se removeu. */
-	public boolean remove(int elem)
+	public boolean remove(String elem)
 	{
 		Elo p;
 		Elo ant = null; /* Referência para anterior. */
 		
-		for(p = prim; ((p != null) && (p.dado != elem)); p = p.prox)
+		for(p = prim; ((p != null) && (!p.dado.equals(elem))); p = p.prox)
 			ant = p;
 		
 		/* Se p é null, então não encontrou elemento. */
@@ -151,5 +151,24 @@ public class Lista
 		return tamanho;
 	}
 
+	public boolean insereFrase(String frase) {
+		String[] palavras = frase.split(" ");
+		
+		for(String p: palavras)
+			this.insere(p);
+		
+		return true;
+	}
+	
+	public String retornaFrase() {
+		String frase = "";
+		
+		Elo p;
+		
+		for(p=prim;p!=null;p=p.prox)
+			frase = p.dado + " " + frase;
+		
+		return frase;
+	}
 	
 }
