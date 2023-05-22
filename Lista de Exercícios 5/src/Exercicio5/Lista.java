@@ -1,4 +1,4 @@
-package Exercicio3;
+package Exercicio5;
 
 public class Lista<T>
 {

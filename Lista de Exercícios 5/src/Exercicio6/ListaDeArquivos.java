@@ -1,14 +1,13 @@
-package Exercicio3;
+package Exercicio6;
 
-public class Lista<T>
-{
-	/* Referência para primeiro elemento */
-	protected Elo prim;
+public class ListaDeArquivos {
+
+	protected Elo prim ;
 	private int tamanho;
 	
 	protected class Elo
 	{
-		protected T dado;
+		protected Arquivo dado;
 		protected Elo prox;
 		
 		public Elo()
@@ -16,20 +15,20 @@ public class Lista<T>
 			prox = null;
 		}
 		
-		public Elo(T elem)
+		public Elo(Arquivo elem)
 		{
 			dado = elem;
 			prox = null;
 		}
 		
-		public Elo(T elem, Elo proxElem)
+		public Elo(Arquivo elem, Elo proxElem)
 		{
 			dado = elem;
 			prox = proxElem;
 		}
 	}
 	
-	public Lista()
+	public ListaDeArquivos()
 	{
 		prim = null;
 		tamanho = 0;
@@ -42,7 +41,7 @@ public class Lista<T>
 	}
 	
 	/* Insere elemento no início da lista. */
-	public void insere(T novo)
+	public void insere(Arquivo novo)
 	{
 		Elo p = new Elo(novo);
 		p.prox = prim;
@@ -51,7 +50,7 @@ public class Lista<T>
 	}
 	
 	/* Verifica se um determinado elemento está na lista. */
-	public boolean busca(T elem)
+	public boolean busca(Arquivo elem)
 	{
 		Elo p;
 		
@@ -65,7 +64,7 @@ public class Lista<T>
 	}
 	
 	/* Implementação recursiva do método de busca. */
-	public boolean buscaRecursiva(T elem)
+	public boolean buscaRecursiva(Arquivo elem)
 	{
 		if(this.vazia())
 			return false;
@@ -73,7 +72,7 @@ public class Lista<T>
 		return buscaRecursiva(elem, prim);
 	}
 	
-	private boolean buscaRecursiva(T elem, Elo p)
+	private boolean buscaRecursiva(Arquivo elem, Elo p)
 	{
 		if(p == null)
 			return false;
@@ -85,7 +84,7 @@ public class Lista<T>
 	}
 
 	/* Remove da lista o primeiro elemento com valor igual a “elem". Ret. true se removeu. */
-	public boolean remove(T elem)
+	public boolean remove(Arquivo elem)
 	{
 		Elo p;
 		Elo ant = null; /* Referência para anterior. */
@@ -108,16 +107,13 @@ public class Lista<T>
 		return true;
 	}
 	
-	/* Imprime todos os elementos da lista. */
-	public void imprime()
+	public void imprimeArquivos()
 	{
 		Elo p;
 		
-		System.out.println("Elementos da lista:");
-		
 		for(p = prim; p != null; p = p.prox)
 		{
-			System.out.print(p.dado + " ");
+			System.out.println("\t" + p.dado.getNome());
 		}
 		
 		System.out.println();
@@ -150,5 +146,4 @@ public class Lista<T>
 	{
 		return tamanho;
 	}
-	
 }

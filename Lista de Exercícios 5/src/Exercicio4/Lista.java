@@ -1,6 +1,6 @@
-package Exercicio3;
+package Exercicio4;
 
-public class Lista<T>
+public class Lista
 {
 	/* Referência para primeiro elemento */
 	protected Elo prim;
@@ -8,7 +8,7 @@ public class Lista<T>
 	
 	protected class Elo
 	{
-		protected T dado;
+		protected String dado;
 		protected Elo prox;
 		
 		public Elo()
@@ -16,13 +16,13 @@ public class Lista<T>
 			prox = null;
 		}
 		
-		public Elo(T elem)
+		public Elo(String elem)
 		{
 			dado = elem;
 			prox = null;
 		}
 		
-		public Elo(T elem, Elo proxElem)
+		public Elo(String elem, Elo proxElem)
 		{
 			dado = elem;
 			prox = proxElem;
@@ -42,7 +42,7 @@ public class Lista<T>
 	}
 	
 	/* Insere elemento no início da lista. */
-	public void insere(T novo)
+	public void insere(String novo)
 	{
 		Elo p = new Elo(novo);
 		p.prox = prim;
@@ -51,7 +51,7 @@ public class Lista<T>
 	}
 	
 	/* Verifica se um determinado elemento está na lista. */
-	public boolean busca(T elem)
+	public boolean busca(String elem)
 	{
 		Elo p;
 		
@@ -65,7 +65,7 @@ public class Lista<T>
 	}
 	
 	/* Implementação recursiva do método de busca. */
-	public boolean buscaRecursiva(T elem)
+	public boolean buscaRecursiva(String elem)
 	{
 		if(this.vazia())
 			return false;
@@ -73,7 +73,7 @@ public class Lista<T>
 		return buscaRecursiva(elem, prim);
 	}
 	
-	private boolean buscaRecursiva(T elem, Elo p)
+	private boolean buscaRecursiva(String elem, Elo p)
 	{
 		if(p == null)
 			return false;
@@ -85,7 +85,7 @@ public class Lista<T>
 	}
 
 	/* Remove da lista o primeiro elemento com valor igual a “elem". Ret. true se removeu. */
-	public boolean remove(T elem)
+	public boolean remove(String elem)
 	{
 		Elo p;
 		Elo ant = null; /* Referência para anterior. */
@@ -97,7 +97,7 @@ public class Lista<T>
 		if (p == null)
 			return false;
 		
-		if (p.equals(prim))
+		if (p == prim)
 			prim = prim.prox; /* Remove elemento do início. */
 		else
 			ant.prox = p.prox;  /* Remove elemento do meio. */
@@ -117,38 +117,43 @@ public class Lista<T>
 		
 		for(p = prim; p != null; p = p.prox)
 		{
-			System.out.print(p.dado + " ");
+			System.out.println(p.dado + " ");
 		}
 		
 		System.out.println();
 	}
 	
-	/* Implementação recursiva da função de impressão. */
-	public void imprimeRecursivo()
-	{
-		System.out.println("Elementos da lista:");
-		
-		if(this.vazia())
-			return;
-		
-		imprimeRecursivo(prim);
-		
-		System.out.println();
-	}
-	
-	private void imprimeRecursivo(Elo p)
-	{
-		if(p == null)
-			return;
-		
-		System.out.print(p.dado + " ");
-		
-		imprimeRecursivo(p.prox);
-	}
-	
 	public int tamanho()
 	{
 		return tamanho;
+	}
+
+	public void insereFrase(String frase) {
+		
+		
+		String[] palavras = frase.split(" ");
+		String pontuacao = "!?,.";
+
+		for(String p: palavras) {
+			if(pontuacao.contains("" + p.charAt(p.length()-1))) {
+				this.insere(p.substring(0, p.length()-1));
+				this.insere("" + p.charAt(p.length()-1));
+			}
+			else
+				this.insere(p);
+		}
+		
+	}
+	
+	public String retornaFrase() {
+		String frase = "";
+		
+		Elo p;
+		
+		for(p=prim;p!=null;p=p.prox)
+			frase = p.dado + " " + frase;
+		
+		return frase;
 	}
 	
 }
