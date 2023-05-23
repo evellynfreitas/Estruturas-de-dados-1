@@ -109,11 +109,20 @@ public class ListaDuplamente
 		System.out.println();
 	}
 	
-	public ListaDuplamente intersecao(ListaDuplamente l1, ListaDuplamente l2) {
+	public static ListaDuplamente intersecao(ListaDuplamente l1, ListaDuplamente l2) {
 		ListaDuplamente l3 = new ListaDuplamente();
-		Elo p1 = l1.prim;
-		Elo p2 = l2.prim;
+		//Elo p1 = l1.prim;
+		//Elo p2 = l2.prim;
 		
+		for(Elo p1 = l1.prim; p1!=null; p1 = p1.prox) {
+			for(Elo p2 = l2.prim; p2!=null; p2 = p2.prox) {
+				if(p1.dado == p2.dado)
+					l3.insere(p1.dado);
+			}
+		}
+		
+		
+		/*
 		while(p1!=null && p2!=null) {
 			
 			if(p1.dado < p2.dado)
@@ -126,13 +135,18 @@ public class ListaDuplamente
 				p1 = p1.prox;
 				p2 = p2.prox;
 			}
-			
-		}
-		
+		}*/
 		return l3;
 	}
 	
-	
-	
-	
+	public static void main(String[] args) {
+		ListaDuplamente l1 = new ListaDuplamente();
+		l1.insere(2);l1.insere(10);l1.insere(5);l1.insere(11);
+		
+		ListaDuplamente l2 = new ListaDuplamente();
+		l2.insere(10);l2.insere(11);l2.insere(1);l2.insere(3);l2.insere(5);
+		
+		ListaDuplamente l3 = ListaDuplamente.intersecao(l1,l2);
+		l3.imprime();
+	}
 }

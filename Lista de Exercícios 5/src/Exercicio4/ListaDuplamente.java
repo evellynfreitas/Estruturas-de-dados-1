@@ -4,6 +4,7 @@ public class ListaDuplamente
 {
 	/* Referência para primeiro elemento */
 	protected Elo prim;
+	protected int tamanho;
 	
 	protected class Elo
 	{
@@ -35,6 +36,7 @@ public class ListaDuplamente
 	public ListaDuplamente()
 	{
 		prim = null;
+		tamanho = 0;
 	}
 	
 	/* Testa se a lista está vazia. */
@@ -58,6 +60,7 @@ public class ListaDuplamente
 			prim.ant = p;
 		
 		prim = p;
+		tamanho++;
 	}
 	
 	/* Método auxiliar para busca. */
@@ -91,6 +94,7 @@ public class ListaDuplamente
 
 		p = null;
 
+		tamanho--;
 		return true;
 	}
 	
@@ -136,8 +140,14 @@ public class ListaDuplamente
 	public void trocaElos(int indiceElo1, int indiceElo2) {
 		Elo p = prim;
 		
-		Elo elo1=new Elo(), ant1=new Elo(), pos1=new Elo();
-		Elo elo2=new Elo(), ant2=new Elo(), pos2=new Elo();
+		Elo elo1=new Elo(), ant1=null, pos1=null;
+		Elo elo2=new Elo(), ant2=null, pos2=null;
+		
+		if(this.vazia())
+			return;
+		else if(indiceElo1 >= tamanho || indiceElo2 >= tamanho)
+			return;
+		
 		
 		for(int i=0; p!=null;i++) {
 			
@@ -155,26 +165,45 @@ public class ListaDuplamente
 				pos2 = p.prox;
 			}
 			
+			if(i>=indiceElo2 && i>=indiceElo1)
+				break;
+			
 			p = p.prox;
 		}
 		
-		ant1.prox = elo2;
-		elo2.prox = pos1;
-		pos1.ant = elo2;
-		elo2.ant = ant1;
+		imprime();
 		
-		ant2.prox = elo1;
+		elo2.prox = pos1;
+		elo2.ant = ant1;
 		elo1.prox = pos2;
-		pos2.ant = elo1;
 		elo1.ant = ant2;
+		
+		imprime();
+		
+		if(ant1!=null)
+			ant1.prox = elo2;
+		else
+			prim = elo2;
+		
+		if(ant2!=null)
+			ant2.prox = elo1;
+		else
+			prim = elo1;
+		
+		if(pos1!=null)
+			pos1.ant = elo2;
+		
+		if(pos2!=null)
+			pos2.ant = elo1;
 		
 	}
 
 
 	public static void main(String[] args) {
 		ListaDuplamente l1 = new ListaDuplamente();
-		l1.insere(0); l1.insere(1); l1.insere(2); l1.insere(3); l1.insere(4); l1.insere(5);
+		l1.insere(5); l1.insere(4); l1.insere(3); l1.insere(2); l1.insere(1); l1.insere(0);
 		l1.imprime();
-		l1.trocaElos(0,5);
+		l1.trocaElos(5,0);
+		l1.imprime();
 	}
 }
