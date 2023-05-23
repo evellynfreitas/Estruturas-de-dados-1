@@ -1,9 +1,12 @@
 package Exercicio6;
+
 public class Pasta {
 	
-	private String diretorio;
-	ListaDeArquivos lista;
+	protected String nome;
+	protected ListaDeArquivos arquivos;
+	protected ListaDePastas subpastas;
 	
+	/*
 	public class ListaDeArquivos extends Lista<Arquivo>{
 	
 		public void imprime() {
@@ -18,29 +21,39 @@ public class Pasta {
 			
 			System.out.println();
 		}
+	}*/
+
+	public Pasta(String nome) {
+		this.nome = nome;
+		arquivos = new ListaDeArquivos();
+		subpastas = new ListaDePastas();
+	}
+	
+	public void insereArquivo(Arquivo a) {
+		arquivos.insere(a);
+	}
+	
+	public boolean removeArquivo(Arquivo a) {
+		return arquivos.remove(a);
+	}
+	
+	public void insereSubpasta(Pasta p) {
+		subpastas.insere(p);
+	}
+	
+ 	public String getNome() {
+		return nome;
 	}
 
-	public Pasta(String diretorio) {
-		this.diretorio = diretorio;
-		lista = null;
-	}
-	
-	public void insere(Arquivo a) {
-		lista.insere(a);
-	}
-	
-	public boolean remove(Arquivo a) {
-		return lista.remove(a);
-	}
-	
-	public void imprime() {
-		System.out.println("Pasta: "+ diretorio);
-		if(lista == null)
-			System.out.println("(Pasta vazia)");
-		
-	}
-
-	public String getDiretorio() {
-		return diretorio;
-	}
+ 	public void imprime() {
+ 		System.out.println(nome);
+ 		if(!arquivos.vazia()) {
+ 			arquivos.imprimeArquivos();
+ 		}
+ 		
+ 		if(!subpastas.vazia()) {
+ 			subpastas.imprimeSubpastas();
+ 		}
+ 	}
+ 	
 }

@@ -6,7 +6,7 @@ public class Main {
 		String frase = "Oi, meus amiguinhos!";
 		Lista lista = new Lista();
 		lista.insereFrase(frase);
-		
+		lista.imprime();
 		System.out.println(lista.retornaFrase());
 	}
 

@@ -96,6 +96,9 @@ public class ListaDeInimigos {
 		System.out.println();
 	}
 	
+	public int quantidade() {
+		return quantidade;
+	}
 	
 	public static void main(String[] args) {
 		ListaDeInimigos lista = new ListaDeInimigos();
@@ -114,4 +117,5 @@ public class ListaDeInimigos {
 		lista.efetuarDano(c, 20);
 		lista.imprime();
 	}
+
 }

@@ -2,12 +2,25 @@ package Exercicio6;
 
 public class Arquivo {
 	private String nome;
+	private String diretorio;
 	
-	public void setArquivo(String s) {
+	public Arquivo(String s) {
 		nome = s;
 	}
 	
-	public String getArquivo() {
+	public void setNome(String s) {
+		nome = s;
+	}
+	
+	public String getNome() {
 		return nome;
+	}
+	
+	public void setDiretorio(String s) {
+		diretorio = s;
+	}
+	
+	public String getDiretorio() {
+		return diretorio;
 	}
 }
