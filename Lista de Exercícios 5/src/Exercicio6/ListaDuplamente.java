@@ -8,7 +8,7 @@ public class ListaDuplamente
 	protected int id;
 	protected class Elo
 	{
-		protected int dado;
+		protected Chamada dado;
 		protected Elo ant;
 		protected Elo prox;
 		
@@ -18,14 +18,14 @@ public class ListaDuplamente
 			prox = null;
 		}
 		
-		public Elo(int elem)
+		public Elo(Chamada elem)
 		{
 			dado = elem;
 			ant = null;
 			prox = null;
 		}
 		
-		public Elo(int elem, Elo antElem, Elo proxElem)
+		public Elo(Chamada elem, Elo antElem, Elo proxElem)
 		{
 			dado = elem;
 			ant = antElem;
@@ -64,12 +64,13 @@ public class ListaDuplamente
 		prim = p;
 		*/
 		
+		Chamada c = new Chamada(novo, ++id);
 		Elo p;
-		p = new Elo(novo);
+		p = new Elo(c);
 		
 		Elo q, ant=null, post=null;
 		
-		for(q = prim;(q!=null && q.dado >= p.dado); q = q.prox) {
+		for(q = prim;(q!=null && q.dado.getCusto() >= p.dado.getCusto()); q = q.prox) {
 			ant = q;
 			post = q.prox;
 		}
@@ -102,7 +103,7 @@ public class ListaDuplamente
 	}
 	
 	/* Método auxiliar para busca. */
-	private Elo busca(int elem)
+	private Elo busca(Chamada elem)
 	{
 		Elo p = null;
 		
@@ -112,7 +113,7 @@ public class ListaDuplamente
 	}
 	
 	/* Remove da lista o primeiro elemento com valor igual a "elem". Retorna true se removeu. */
-	public boolean remove(int elem)
+	public boolean remove(Chamada elem)
 	{
 		Elo p = null;
 		p = busca(elem);
@@ -144,31 +145,7 @@ public class ListaDuplamente
 		
 		for(p = prim; p != null; p = p.prox)
 		{
-			System.out.print(p.dado + " ");
-		}
-		
-		System.out.println();
-	}
-	
-	/* Imprime todos os elementos da lista em ordem reversa. */
-	public void imprimeReversa()
-	{
-		Elo p;
-		Elo ult = null;
-		
-		System.out.println("Elementos da lista em ordem reversa:");
-		
-		p = prim;
-		
-		while(p != null)
-		{
-			ult = p;
-			p = p.prox;
-		}
-		
-		for(p = ult; p != null; p = p.ant)
-		{
-			System.out.print(p.dado + " ");
+			System.out.println("Id: " + p.dado.getId() + " Custo: " + p.dado.getCusto());
 		}
 		
 		System.out.println();
@@ -178,15 +155,5 @@ public class ListaDuplamente
 		ListaDuplamente l1 = new ListaDuplamente();
 		l1.insere(2);l1.insere(10);l1.insere(5);l1.insere(11);l1.insere(10);l1.insere(2);
 		l1.imprime();
-		/*
-		ListaDuplamente l2 = new ListaDuplamente();
-		l2.insere(1);l2.insere(2);l2.insere(3);l2.insere(4);
-		
-		ListaDuplamente l3 = new ListaDuplamente();
-		l3.insere(1);l3.insere(2);l3.insere(3);
-		
-		ListaDuplamente l4 = new ListaDuplamente();
-		
-		ListaDuplamente l5 = new ListaDuplamente();*/
 	}
 }
