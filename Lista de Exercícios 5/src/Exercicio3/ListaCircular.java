@@ -193,6 +193,7 @@ public class ListaCircular extends Lista
 	
 	
 	public static void main(String[] args) {
+		
 		ListaCircular l1 = new ListaCircular();
 		l1.insere(1); l1.insere(3); l1.insere(5); l1.insere(7); l1.insere(9);
 		l1.imprime();

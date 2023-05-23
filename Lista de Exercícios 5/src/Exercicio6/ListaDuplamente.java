@@ -5,7 +5,6 @@ public class ListaDuplamente
 	/* Referência para primeiro elemento */
 	protected Elo prim;
 	protected int tamanho;
-	protected int id;
 	protected class Elo
 	{
 		protected Chamada dado;
@@ -37,7 +36,6 @@ public class ListaDuplamente
 	{
 		prim = null;
 		tamanho = 0;
-		id = 0;
 	}
 	
 	/* Testa se a lista está vazia. */
@@ -46,27 +44,9 @@ public class ListaDuplamente
 		return prim == null;
 	}
 	
-	/* Insere elemento no início da lista. */
-	public void insere(int novo)
+	public void insere(Chamada novo)
 	{
-		/*
-		Elo p;
-		
-		p = new Elo(novo);
-		
-		p.prox = prim;
-		
-		p.ant = null;
-		
-		if (prim != null)
-			prim.ant = p;
-		
-		prim = p;
-		*/
-		
-		Chamada c = new Chamada(novo, ++id);
-		Elo p;
-		p = new Elo(c);
+		Elo p = new Elo(novo);
 		
 		Elo q, ant=null, post=null;
 		
@@ -83,6 +63,7 @@ public class ListaDuplamente
 		else if(ant == null) { // inserir no inicio
 			post = prim;
 			p.prox = post;
+			post.ant = p;
 			p.ant = null;
 			prim = p;
 		}
@@ -115,16 +96,16 @@ public class ListaDuplamente
 	/* Remove da lista o primeiro elemento com valor igual a "elem". Retorna true se removeu. */
 	public boolean remove(Chamada elem)
 	{
-		Elo p = null;
-		p = busca(elem);
-
+		Elo p = busca(elem);
+		
 		if (p == null) return false;
 
 		/* Retira primeiro elemento */
 		if (p == prim) 
 			prim = prim.prox;
-		else 
-			/* Retira elemento do meio */
+		
+		/* Retira elemento do meio */
+		else
 			p.ant.prox = p.prox;
 
 		/* Testa se é ultimo elemento */  
@@ -152,8 +133,25 @@ public class ListaDuplamente
 	}
 	
 	public static void main(String[] args) {
+		//apenas para teste
 		ListaDuplamente l1 = new ListaDuplamente();
-		l1.insere(2);l1.insere(10);l1.insere(5);l1.insere(11);l1.insere(10);l1.insere(2);
+		int id = 0;
+		Chamada c1 = new Chamada(10,++id);
+		Chamada c2 = new Chamada(5,++id);
+		Chamada c3 = new Chamada(11,++id);
+		Chamada c4 = new Chamada(10,++id);
+		Chamada c5 = new Chamada(12,++id);
+		
+		l1.insere(c1);
+		l1.insere(c2);
+		l1.insere(c3);
+		l1.insere(c4);
+		l1.insere(c5);
 		l1.imprime();
+		
+		l1.remove(c1);
+		
+		l1.imprime();
+		
 	}
 }

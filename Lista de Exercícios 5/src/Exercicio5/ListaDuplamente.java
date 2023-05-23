@@ -133,17 +133,9 @@ public class ListaDuplamente
 		System.out.println();
 	}
 	
-	
 	public boolean verificaIgualdade(ListaDuplamente lista2) {
-		/*
-		Para a classe ListaDuplamente, crie um método que use recursão para verificar se a
-		lista corrente, isto é, para a qual o método é chamado, é igual a uma lista lista2 passada
-		como parâmetro. Note que você pode criar um ou mais métodos auxiliares.
-		*/
-		
 		return comparaElos(this.prim, lista2.prim);
 	}
-
 
 	private boolean comparaElos(Elo e1, Elo e2) {
 		
@@ -158,6 +150,7 @@ public class ListaDuplamente
 	}
 	
 	public static void main(String[] args) {
+		//apenas para testar
 		ListaDuplamente l1 = new ListaDuplamente();
 		l1.insere(1);l1.insere(2);l1.insere(3);l1.insere(4);
 		
