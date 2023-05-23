@@ -133,34 +133,47 @@ public class ListaDuplamente
 		System.out.println();
 	}
 	
-	/* Resolução da questão 4 da lista auxiliar de Lista Encadeada. */
-	public static ListaDuplamente concatena(ListaDuplamente l1, ListaDuplamente l2)
-	{
-		Elo p;
+	
+	public boolean verificaIgualdade(ListaDuplamente lista2) {
+		/*
+		Para a classe ListaDuplamente, crie um método que use recursão para verificar se a
+		lista corrente, isto é, para a qual o método é chamado, é igual a uma lista lista2 passada
+		como parâmetro. Note que você pode criar um ou mais métodos auxiliares.
+		*/
 		
-		/* Verifica se a lista l1 é vazia. */
-		if(l1.prim == null)
-		{
-			l1.prim = l2.prim;
-		}
-		else
-		{
-			/* Primeiramente, precisamos obter o último elo da lista l1. */
-			for(p = l1.prim; p.prox != null; p = p.prox);
+		return comparaElos(this.prim, lista2.prim);
+	}
 
-			/* Faz o "prox" do último elemento da lista l1, apontado por "p",
-			 * apontar para o "prim" da lista l2. */
-			p.prox = l2.prim;
-			
-			/* Faz o "ant" do "prim" da lista l2 apontar para o último elemento da
-			 * lista l1, apontado por "p". */
-			l2.prim.ant = p;
-		}
+
+	private boolean comparaElos(Elo e1, Elo e2) {
 		
-		/* Nesse ponto, os elementos de l2 já estão encadeados ao final de l1,
-		 * como desejado. Assim, vamos deixar a lista l2 vazia. */
-		l2.prim = null;
+		if(e1 == null && e2 == null)
+			return true;
+		else if(e1 == null || e2 == null)
+			return false;
+		else if (e1.dado == e2.dado)
+			return comparaElos(e1.prox, e2.prox);
+		else
+			return false;
+	}
+	
+	public static void main(String[] args) {
+		ListaDuplamente l1 = new ListaDuplamente();
+		l1.insere(1);l1.insere(2);l1.insere(3);l1.insere(4);
 		
-		return l1;
+		ListaDuplamente l2 = new ListaDuplamente();
+		l2.insere(1);l2.insere(2);l2.insere(3);l2.insere(4);
+		
+		ListaDuplamente l3 = new ListaDuplamente();
+		l3.insere(1);l3.insere(2);l3.insere(3);
+		
+		ListaDuplamente l4 = new ListaDuplamente();
+		
+		ListaDuplamente l5 = new ListaDuplamente();
+		
+		System.out.println(l1.verificaIgualdade(l2));
+		System.out.println(l1.verificaIgualdade(l3));
+		System.out.println(l1.verificaIgualdade(l4));
+		System.out.println(l4.verificaIgualdade(l5));
 	}
 }
