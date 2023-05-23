@@ -164,7 +164,7 @@ public class ListaCircular extends Lista
 		Elo p = prim;
 		Elo p2 = lista2.prim;
 		
-		while(true) {
+		while(p!=null || p2!=null) {
 			
 			if(p!=null) {
 				lista3.insere(p.dado);
@@ -181,9 +181,6 @@ public class ListaCircular extends Lista
 				if(p2 == lista2.prim)
 					p2 = null;
 			}
-			
-			if(p2 == null && p == null)
-				break;
 		}
 		
 		return lista3;
