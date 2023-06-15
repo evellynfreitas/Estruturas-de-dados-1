@@ -2,185 +2,126 @@ package VetorCaracteristico;
 
 public class VetorCaracteristico {
 
-	private boolean[] vetor;
+	private int[] vetor;
 	private int tamanho;
 	private int cardinalidade;
 	
 	public VetorCaracteristico(int n) {
 		tamanho = n;
-		vetor = new boolean[tamanho+1];
+		vetor = new int[tamanho];
 		cardinalidade = 0;
-		esvazia();
+		esvaziarConjunto();
 	}
 	
-	public boolean insere(int n) {
-		if(n > tamanho || n <= 0)
+	public boolean inserirElemento(int x) {
+		if(x > tamanho || x <= 0)
 			return false;
 		else {
-			vetor[n] = true;
-			cardinalidade++;
-			return true;
+			if(vetor[x-1] == 1)
+				return false;
+			else {
+				vetor[x-1] = 1;
+				cardinalidade++;
+				return true;
+			}
 		}
 	}
 	
-	public boolean remove(int n) {
-		if(n > tamanho || n <= 0)
+	public boolean removerElemento(int x) {
+		if(x > tamanho || x <= 0)
 			return false;
 		else {
-			vetor[n] = false;
-			cardinalidade--;
-			return true;
+			if(vetor[x-1] == 0) {
+				return false;
+			}
+			else {
+				vetor[x-1] = 0;
+				cardinalidade--;
+				return true;
+			}
 		}
 	}
 	
-	public boolean pertence(int n) {
-		if(n > tamanho || n <= 0)
+	public boolean verificarPertinencia(int x) {
+		if(x > tamanho || x <= 0)
 			return false;
-		else
-			return vetor[n];
-		
+		else {
+			if(vetor[x-1] == 0)
+				return false;
+			else
+				return true;
+		}
 	}
 	
-	public void esvazia() {
-		for(int i = 1; i <= tamanho; i++)
-			vetor[i] = false;
+	public void esvaziarConjunto() {
+		for(int i = 0; i < tamanho; i++)
+			vetor[i] = 0;
 	}
 	
-	public int cardinalidade() {
+	public int retornaCardinalidade() {
 		return cardinalidade;
 	}
 	
 	public boolean verificaVazio() {
-		for(int i = 1; i <= tamanho; i++) {
-			if(vetor[i])
+		for(int i = 0; i < tamanho; i++) {
+			if(vetor[i] == 1)
 				return false;
 		}
 		return true;
 	}
 	
 	public boolean verificaUniverso() {
-		for(int i = 1; i <= tamanho; i++) {
-			if(!vetor[i])
+		for(int i = 0; i < tamanho; i++) {
+			if(vetor[i] == 0)
 				return false;
 		}
 		return true;
 	}
 		
-	public boolean verificaSubConjunto(VetorCaracteristico v) {
-		
-		for(int i=1; i <= v.tamanho; i++) {
-			
-			if(i<=this.tamanho) {
-				
-				if(!vetor[i] && v.vetor[i])
-					return false;
-			}
-			else {
-				//se for um conj com mais elementos e tiver alguma posição "true" ele deixa de ser subconjunto
-				if(v.vetor[i])
-					return false;
-			}
-			
+	public boolean verificaSubProprio() {
+		for(int i = 0; i < tamanho; i++) {
+			if(vetor[i] == 0)
+				return true;
 		}
-		return true;
+		return false;
 	}
 	
-	public boolean verificaSubProprio(VetorCaracteristico v) {
+	public VetorCaracteristico uniao(VetorCaracteristico c1) {
+		VetorCaracteristico v = new VetorCaracteristico(tamanho);
 		
-		int a = 0;
-		
-		for(int i=1; i <= v.tamanho || i<=this.tamanho; i++) {
-			
-			if(i<=this.tamanho && i <= v.tamanho) {
-				
-				if(!this.vetor[i] && v.vetor[i])
-					return false;
-				
-				else if(this.vetor[i] && !v.vetor[i])
-					a++;
-			}
-			else if(i<=this.tamanho) {
-				if(this.vetor[i])
-					a++;
-			}
-			else if(i<=v.tamanho) {
-				if(v.vetor[i])
-					return false;
-			}
-			
+		for(int i = 0; i < tamanho; i++) {
+			if(this.vetor[i] + c1.vetor[i] > 0)
+				v.vetor[i] = 1;
 		}
 		
-		if(a>0)
-			return true;
-		else
-			return false;
+		return v;
 	}
-
-	public VetorCaracteristico uniao(VetorCaracteristico v) {
+	
+	public VetorCaracteristico intersecao(VetorCaracteristico c1) {
 		
-		int tam;
-		
-		if(v.tamanho > this.tamanho)
-			tam = v.tamanho;
-		else
-			tam = this.tamanho;
-		
-		VetorCaracteristico uniao = new VetorCaracteristico(tam);
-		
-		for(int i = 1; i <= tam; i++) {
-			
-			if(i <= this.tamanho && i <= v.tamanho)
-				uniao.vetor[i] = (this.vetor[i] || v.vetor[i]);
-			
-			else if (i <= this.tamanho)
-				uniao.vetor[i] = this.vetor[i];
-			
-			else if (i <= v.tamanho)
-				uniao.vetor[i] = v.vetor[i];
-			
-		}
-		
-		return uniao;
-	}
-
-	public VetorCaracteristico intersecao(VetorCaracteristico v) {
-		
-		int tam;
-		
-		if(v.tamanho > this.tamanho)
-			tam = v.tamanho;
-		else
-			tam = this.tamanho;
-		
-		VetorCaracteristico inter = new VetorCaracteristico(tam);
-		
-		for(int i = 1; i <= tam; i++) {
-			
-			if(i <= this.tamanho && i <= v.tamanho)
-				inter.vetor[i] = (this.vetor[i] && v.vetor[i]);
+		for(int i = 0; i < tamanho; i++) {
+			if(this.vetor[i] * c1.vetor[i] == 1)
+				this.vetor[i] = 1;
 			else
-				break;
+				this.vetor[i] = 0;
 		}
 		
-		return inter;
-		
+		return this;
 	}
 
-	public int menor() {
-		for(int i=1; i<=tamanho; i++)
-			if(vetor[i])
-				return i;
+	public int retornaMenor() {
+		for(int i=0; i<tamanho; i++)
+			if(vetor[i]==1)
+				return vetor[i];
 		
 		return Integer.MIN_VALUE;
 	}
 	
-	public int maior() {
-		for(int i=tamanho; i>=1; i--)
-			if(vetor[i])
-				return i;
+	public int retornaMaior() {
+		for(int i=tamanho-1; i>=0; i--)
+			if(vetor[i]==1)
+				return vetor[i];
 		
 		return Integer.MAX_VALUE;
 	}
-	
-
 }
