@@ -19,7 +19,5 @@ public class Main
 		raiz.imprimePreOrdem();
 		System.out.println();
 		raiz.imprimePosOrdem();
-		System.out.println();
-		raiz.imprimeEmOrdem();
 	}
 }
