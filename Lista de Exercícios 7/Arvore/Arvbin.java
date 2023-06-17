@@ -405,5 +405,21 @@ public class Arvbin<T extends Comparable<T>>
 			 dir.imprimeEmOrdem();
 	 }
 	 
+	 // ex 2
+	 
+	 public static Integer retornaSomaSubArvore(Arvbin<Integer> no) {
+		 int soma = no.val;
+		 
+		 if(no.esq!=null)
+			 soma+=Arvbin.retornaSomaSubArvore(no.esq);
+		 
+		 if(no.dir!=null)
+			 soma+=Arvbin.retornaSomaSubArvore(no.dir);
+		 
+		 return soma;
+	 }
+	 
+	 
+	 
 
 }
