@@ -419,7 +419,29 @@ public class Arvbin<T extends Comparable<T>>
 		 return soma;
 	 }
 	 
+	 // ex 3
 	 
+	 public boolean eSimilar(Arvbin<T> arvore) {
+		 
+		if(this == null && arvore != null || this != null && arvore == null)
+			return false;
+			
+		else {
+			boolean e = false, d = false;
+				
+			if(esq!=null && arvore.esq!=null)
+				e = esq.eSimilar(arvore.esq);
+			else if(esq == null && arvore.esq == null)
+				e = true;
+				
+			if(dir!=null && arvore.dir!=null)
+				d = dir.eSimilar(arvore.dir);
+			else if(dir == null && arvore.dir == null)
+				d = true;
+				
+			return e && d;
+		}
+	 }
 	 
 
 }
