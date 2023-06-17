@@ -395,7 +395,15 @@ public class Arvbin<T extends Comparable<T>>
 		 System.out.print(val + " ");
 	 }
 	 
-	 
+	 public void imprimeEmOrdem() {
+		 if(esq!=null)
+			 esq.imprimeEmOrdem();
+		 
+		 System.out.print(val + " ");
+		 
+		 if(dir!=null)
+			 dir.imprimeEmOrdem();
+	 }
 	 
 
 }
