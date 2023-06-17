@@ -443,5 +443,40 @@ public class Arvbin<T extends Comparable<T>>
 		}
 	 }
 	 
+	 // ex 4
+	 
+	 private void insere(Arvbin<T> a) {
+		 if(esq==null)
+			 esq = a;
+		 else if(dir == null)
+			 dir = a;
+		 else
+			 esq.insere(a);
+	 }
+	 
+	 public Arvbin<T> delete(T valor){
+		 
+		 if(valor.compareTo(this.val) != 0) {
+			 
+			 if(esq != null)
+			 esq = esq.delete(valor);
+			 if(dir != null)
+			 dir = dir.delete(valor);
+		 }
+		 
+		 else{
+			 if(esq!=null){
+				 esq.insere(dir);
+				 return esq;
+			 }
+			 else if(dir!=null) {
+				 return dir;
+			 }
+			 else
+				 return null;
+				 
+		 }
+		 return this;
+	 }
 
 }
