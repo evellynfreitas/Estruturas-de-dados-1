@@ -479,4 +479,68 @@ public class Arvbin<T extends Comparable<T>>
 		 return this;
 	 }
 
+	 // ex 5
+	 
+	 public Arvbin<T> tornaRaiz(T valor){
+		 Arvbin<T> nova=null;
+		 
+		 if(valor.compareTo(this.val) != 0) {
+			 
+			 if(esq != null)
+			 nova = esq.busca(valor);
+			 
+			 if(nova==null && dir != null)
+			 nova = dir.busca(valor);
+			 
+			 if(nova != null) {
+				 
+				 Arvbin<T> e = nova.esq, d=nova.dir;
+				 nova.esq=null;
+				 nova.dir=null;
+				 
+				 nova.defineDir(this.delete(nova.val));
+				 nova.mostra();System.out.println();
+				 if(e!=null) nova.insere(e);
+				 if(d!=null) nova.insere(d);
+				 nova.mostra();
+				 return nova;
+			 }
+			 else
+				 return null;
+			 
+		 }
+		 
+		 else return nova;
+	 }
+	 
+	 // ex 6
+	 
+	 public boolean eBalanceada() {
+		 if((esq == null) && (dir == null))
+				return true;
+		
+		int altEsq = 0, altDir = 0;
+		
+		if(esq != null)
+			altEsq = esq.calculaAltura()+1;
+			
+		if(dir != null)
+			altDir = dir.calculaAltura()+1;
+		
+		if(Math.abs(altEsq - altDir) <= 1) {
+			if(esq != null) {
+				if(!esq.eBalanceada())
+					return false;
+			}
+			
+			if(dir!=null) {
+				if(!dir.eBalanceada())
+					return false;
+			}
+		}
+		else
+			return false;
+		
+		return true;
+	 }
 }
