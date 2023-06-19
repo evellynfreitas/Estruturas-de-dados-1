@@ -68,9 +68,27 @@ public class Main
 		Arvbin<Integer> raiz = new Arvbin<Integer>(1,n9,n6);
 		*/
 		
+		// Teste ex 5
+		/*
+		Arvbin<Integer> n7 = new Arvbin<Integer>(7);
+		Arvbin<Integer> n8 = new Arvbin<Integer>(8);
+		Arvbin<Integer> n5 = new Arvbin<Integer>(5,n7,n8);
+		
+		Arvbin<Integer> n6 = new Arvbin<Integer>(6);
+		Arvbin<Integer> n3 = new Arvbin<Integer>(3,n5,n6);
+		
+		Arvbin<Integer> n4 = new Arvbin<Integer>(4);
+		Arvbin<Integer> n2 = new Arvbin<Integer>(2,n4,null);
+		
+		Arvbin<Integer> n1 = new Arvbin<Integer>(1,n2,n3);
+		
+		n1.mostra(); System.out.println();
+		Arvbin<Integer> nova = n1.tornaRaiz(8);
+		nova.mostra();
+		*/
 		
 		// Teste ex 6
-		
+		/*
 		Arvbin<Integer> n7 = new Arvbin<Integer>(7);
 		Arvbin<Integer> n8 = new Arvbin<Integer>(8);
 		Arvbin<Integer> n5 = new Arvbin<Integer>(5,n7,n8);
@@ -84,5 +102,6 @@ public class Main
 		Arvbin<Integer> n1 = new Arvbin<Integer>(1,n2,n3);
 		n1.mostra();
 		System.out.println("\n… balanceada? "+ n1.eBalanceada());
+		*/
 	}
 }

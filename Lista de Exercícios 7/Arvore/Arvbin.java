@@ -499,10 +499,8 @@ public class Arvbin<T extends Comparable<T>>
 				 nova.dir=null;
 				 
 				 nova.defineDir(this.delete(nova.val));
-				 nova.mostra();System.out.println();
 				 if(e!=null) nova.insere(e);
 				 if(d!=null) nova.insere(d);
-				 nova.mostra();
 				 return nova;
 			 }
 			 else
@@ -512,6 +510,7 @@ public class Arvbin<T extends Comparable<T>>
 		 
 		 else return nova;
 	 }
+	 
 	 
 	 // ex 6
 	 
