@@ -2,15 +2,15 @@ import java.util.NoSuchElementException;
 
 public class ArvBinBusca<Chave extends Comparable<Chave>, Valor> 
 {
-	private No raiz; /* Raiz da ·rvore. */
+	private No raiz; /* Raiz da √°rvore. */
 	
 	private class No
 	{
-		private Chave chave; /* Chave usada nas comparaÁıes. */
-		private Valor valor; /* InformaÁ„o armazenada. */
-		private No esq, dir; /* ReferÍncias para sub·rvores esquerda e direita. */
+		private Chave chave; /* Chave usada nas compara√ß√µes. */
+		private Valor valor; /* Informa√ß√£o armazenada. */
+		private No esq, dir; /* Refer√™ncias para sub√°rvores esquerda e direita. */
 
-		/* Cria um nÛ com chave e valor fornecidos e esq = dir = null. */
+		/* Cria um n√≥ com chave e valor fornecidos e esq = dir = null. */
 		public No(Chave chave, Valor valor)
 		{
 			this.chave = chave;
@@ -28,8 +28,8 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
 		}
 		
 		
-		/* Cria um nÛ com chave e valor fornecidos. As sub·rvores esq e dir s„o
-		 * passadas por par‚metro. */
+		/* Cria um n√≥ com chave e valor fornecidos. As sub√°rvores esq e dir s√£o
+		 * passadas por par√¢metro. */
 		public No(Chave chave, Valor valor, No esq, No dir)
 		{
 			this.chave = chave;
@@ -40,7 +40,7 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
 	}
 	
 	/**
-	 *  CriaÁ„o de uma ·rvore vazia. 
+	 *  Cria√ß√£o de uma √°rvore vazia. 
 	 */
 	public ArvBinBusca()
 	{
@@ -48,9 +48,9 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
 	}
 	
 	/** 
-	 * Verifica se a ·rvore est· vazia.
+	 * Verifica se a √°rvore est√° vazia.
 	 * 
-	 * @return se a ·rvore est· vazia ou possui algum elemento
+	 * @return se a √°rvore est√° vazia ou possui algum elemento
 	 */
 	public boolean vazia()
 	{
@@ -58,7 +58,7 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
 	}
 	
 	/**
-	 * Apresenta o conte˙do da ·rvore em ordem simÈtrica.
+	 * Apresenta o conte√∫do da √°rvore em ordem sim√©trica.
 	 */
 	public void mostra()
 	{
@@ -67,7 +67,7 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
 	
 	private void mostra(No x)
 	{
-		/* Caso base (critÈrio de parada). */
+		/* Caso base (crit√©rio de parada). */
 		if(x == null)
 			return;
 		
@@ -76,7 +76,7 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
 		/* Chamada recursiva para a esquerda. */
 		mostra(x.esq);
 		
-		/* Imprime a chave do nÛ corrente. */
+		/* Imprime a chave do n√≥ corrente. */
 		System.out.print("<" + x.chave + ">");
 		
 		/* Chamada recursiva para a direita. */
@@ -86,15 +86,15 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
 	}
 	
     /**
-     * Retorna a menor chave da ·rvore.
+     * Retorna a menor chave da √°rvore.
      *
-     * @return a menor chave da ·rvore
-     * @throws NoSuchElementException se a ·rvore est· vazia
+     * @return a menor chave da √°rvore
+     * @throws NoSuchElementException se a √°rvore est√° vazia
      */
     public Chave min()
     {
         if(vazia()) 
-        	throw new NoSuchElementException("¡rvore est· vazia!");
+        	throw new NoSuchElementException("√Årvore est√° vazia!");
         
         return min(raiz).chave;
     } 
@@ -107,14 +107,14 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
     }
     
     /**
-     * Retorna o maior elemento da ·rvore.
+     * Retorna o maior elemento da √°rvore.
      *
-     * @return o maior elemento da ·rvore
-     * @throws NoSuchElementException se a ·rvore est· vazia
+     * @return o maior elemento da √°rvore
+     * @throws NoSuchElementException se a √°rvore est√° vazia
      */
     public Chave max() {
         if(vazia()) 
-        	throw new NoSuchElementException("A ·rvore est· vazia!");
+        	throw new NoSuchElementException("A √°rvore est√° vazia!");
         
         return max(raiz).chave;
     } 
@@ -127,10 +127,10 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
     }
     
     /**
-     * Retorna o n˙mero de nÛs, isto È, pares (chave, valor), contidos na ·rvore 
-     * bin·ria de busca.
+     * Retorna o n√∫mero de n√≥s, isto √©, pares (chave, valor), contidos na √°rvore 
+     * bin√°ria de busca.
      * 
-     * @return o n˙mero de nÛs da ·rvore
+     * @return o n√∫mero de n√≥s da √°rvore
      */
     public int tamanho()
     {
@@ -139,19 +139,19 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
     
     private int tamanho(No x)
     {
-    	/* Caso base (critÈrio de parada). */
+    	/* Caso base (crit√©rio de parada). */
     	if(x == null)
     		return 0;
     	
-    	/* Chamada recursiva para sub·rvores esquerda e direita. */
+    	/* Chamada recursiva para sub√°rvores esquerda e direita. */
     	return 1 + tamanho(x.esq) + tamanho(x.dir);
     }
     
     
     /**
-     * Retorna a altura da ·rvore bin·ria de busca.
+     * Retorna a altura da √°rvore bin√°ria de busca.
      *
-     * @return a altura da ·rvore (uma ·rvore de um ˙nico nÛ possui altura 0)
+     * @return a altura da √°rvore (uma √°rvore de um √∫nico n√≥ possui altura 0)
      */
     public int altura()
     {
@@ -170,26 +170,26 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
     
     
     /**
-     * Essa ·rvore bin·ria de busca contÈm a chave fornecida?
+     * Essa √°rvore bin√°ria de busca cont√©m a chave fornecida?
      *
      * @param  chave a chave fornecida
-     * @return {@code true} se a ·rvore contÈm a chave {@code chave} e
-     *         {@code false} caso contr·rio
-     * @throws IllegalArgumentException se {@code key} È {@code null}
+     * @return {@code true} se a √°rvore cont√©m a chave {@code chave} e
+     *         {@code false} caso contr√°rio
+     * @throws IllegalArgumentException se {@code key} √© {@code null}
      */
     public boolean contem(Chave chave) {
         if (chave == null) 
-        	throw new IllegalArgumentException("A chave fornecida È null!");
+        	throw new IllegalArgumentException("A chave fornecida √© null!");
         
         return get(chave) != null;
     }
 	
     /**
-     * Retorna o valor associado ‡ chave fornecida.
+     * Retorna o valor associado √† chave fornecida.
      *
      * @param  chave a chave a ser buscada
-     * @return o valor associado ‡ chave fornecida se tal chave se encontra na ·rvore
-     *         e {@code null} se a chave n„o est· na ·rvore
+     * @return o valor associado √† chave fornecida se tal chave se encontra na √°rvore
+     *         e {@code null} se a chave n√£o est√° na √°rvore
      * @throws IllegalArgumentException if {@code chave} is {@code null}
      */
     public Valor get(Chave chave) 
@@ -200,9 +200,9 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
     private Valor get(No x, Chave chave) 
     {
         if(chave == null) 
-        	throw new IllegalArgumentException("A chave fornecida È null!");
+        	throw new IllegalArgumentException("A chave fornecida √© null!");
         
-        /* A chave n„o se encontra na ·rvore. */
+        /* A chave n√£o se encontra na √°rvore. */
         if(x == null)
         	return null;
         
@@ -217,19 +217,19 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
     }
     
     /**
-     * Insere na ·rvore bin·ria de busca o par (chave, valor) fornecido. Caso a ·rvore
-     * j· possua a chave especificada, o valor antigo È sobrescrito com o novo valor 
-     * fornecido. Remove o nÛ de chave igual ‡ chave fornecida caso o valor especificado
+     * Insere na √°rvore bin√°ria de busca o par (chave, valor) fornecido. Caso a √°rvore
+     * j√° possua a chave especificada, o valor antigo √© sobrescrito com o novo valor 
+     * fornecido. Remove o n√≥ de chave igual √† chave fornecida caso o valor especificado
      * seja {@code null}.
      *
      * @param  chave a chave fornecida
      * @param  valor o valor fornecido
-     * @throws IllegalArgumentException se {@code chave} È {@code null}
+     * @throws IllegalArgumentException se {@code chave} √© {@code null}
      */
     public void put(Chave chave, Valor valor)
     {
         if(chave == null) 
-        	throw new IllegalArgumentException("A chave fornecida È null!");
+        	throw new IllegalArgumentException("A chave fornecida √© null!");
         
         if(valor == null) {
             delete(chave);
@@ -241,7 +241,7 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
 
     private No put(No x, Chave chave, Valor valor)
     {
-    	/* Caso base: encontrou a posiÁ„o de inserÁ„o. */
+    	/* Caso base: encontrou a posi√ß√£o de inser√ß√£o. */
         if (x == null)
         	return new No(chave, valor);
         
@@ -251,30 +251,30 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
         	x.esq = put(x.esq, chave, valor);
         else if(cmp > 0) /* Deve-se ir para a direita. */
         	x.dir = put(x.dir, chave, valor);
-        else /* Caso tenha encontrado nÛ de mesma chave. */
+        else /* Caso tenha encontrado n√≥ de mesma chave. */
         	x.valor = valor;
         
         return x;
     }
 	
     /**
-     * Remove o nÛ de menor chave da ·rvore.
+     * Remove o n√≥ de menor chave da √°rvore.
      *
-     * @throws NoSuchElementException se a ·rvore est· vazia
+     * @throws NoSuchElementException se a √°rvore est√° vazia
      */
     public void deleteMin() 
     {
         if(vazia())
-        	throw new NoSuchElementException("A ·rvore est· vazia!");
+        	throw new NoSuchElementException("A √°rvore est√° vazia!");
         
         raiz = deleteMin(raiz);
     }
 
-    /* MÈtodo recursivo que anda sempre para a esquerda, procurando o nÛ
+    /* M√©todo recursivo que anda sempre para a esquerda, procurando o n√≥
      * de menor chave a ser removido. */
     private No deleteMin(No x) 
     {
-    	/* Caso n„o haja filho ‡ esquerda, o nÛ corrente possui a menor chave. */
+    	/* Caso n√£o haja filho √† esquerda, o n√≥ corrente possui a menor chave. */
         if(x.esq == null) 
         	return x.dir;
         
@@ -284,19 +284,19 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
     }
 
     /**
-     * Remove o nÛ de maior chave da ·rvore.
+     * Remove o n√≥ de maior chave da √°rvore.
      *
-     * @throws NoSuchElementException se a ·rvore est· vazia
+     * @throws NoSuchElementException se a √°rvore est√° vazia
      */
     public void deleteMax()
     {
         if(vazia())
-        	throw new NoSuchElementException("A ·rvore est· vazia!");
+        	throw new NoSuchElementException("A √°rvore est√° vazia!");
         
         raiz = deleteMax(raiz);
     }
 
-    /* MÈtodo recursivo que anda sempre para a direita, procurando o nÛ
+    /* M√©todo recursivo que anda sempre para a direita, procurando o n√≥
      * de maior chave a ser removido. */
     private No deleteMax(No x) 
     {
@@ -309,18 +309,18 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
     }
     
     /**
-     * Remove o nÛ cuja chave seja igual ‡ {@code chave} fornecida.
+     * Remove o n√≥ cuja chave seja igual √† {@code chave} fornecida.
      * 
      * @param chave a chave fornecida
-     * @return {@code true} se foi possÌvel remover o nÛ de chave {@code chave} e
-     *         {@code false} caso contr·rio
+     * @return {@code true} se foi poss√≠vel remover o n√≥ de chave {@code chave} e
+     *         {@code false} caso contr√°rio
      */
     public void delete(Chave chave)
     {    	
     	raiz = delete(raiz, chave);    	
     }
     
-    /* Remove o nÛ com o valor "val" da "·rvore" a partir do nÛ para o qual est· sendo chamada a funÁ„o. Obs: "ref_no" È o ponteiro que referencia o nÛ para o qual est· sendo chamada a funÁ„o, o qual pode ter que ser modificado. Retorna false se o valor n„o pertencer ‡ "·rvore".
+    /* Remove o n√≥ com o valor "val" da "√°rvore" a partir do n√≥ para o qual est√° sendo chamada a fun√ß√£o. Obs: "ref_no" √© o ponteiro que referencia o n√≥ para o qual est√° sendo chamada a fun√ß√£o, o qual pode ter que ser modificado. Retorna false se o valor n√£o pertencer √† "√°rvore".
     */
     private No delete(No x, Chave chave)
     {
@@ -342,13 +342,13 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
     		
     		No t = x;
 
-    		/* Pega o menor da sub·rvore direita (mais ‡ esquerda). */
+    		/* Pega o menor da sub√°rvore direita (mais √† esquerda). */
     		x = min(t.dir);
 
     		/* Remove o menor. */
     		x.dir = deleteMin(t.dir);
 
-    		/* A sub·rvore esquerda se mantÈm a mesma. */
+    		/* A sub√°rvore esquerda se mant√©m a mesma. */
     		x.esq = t.esq;
     	}
 
@@ -357,20 +357,20 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
     
     
     /**
-     * Retorna a maior chave na ·rvore que È menor ou igual ‡ {@code chave} fornecida.
+     * Retorna a maior chave na √°rvore que √© menor ou igual √† {@code chave} fornecida.
      *
      * @param  chave a chave fornecida
-     * @return a maior chave na ·rvore menor ou igual ‡ {@code chave}
-     * @throws NoSuchElementException se a ·rvore est· vazia
-     * @throws IllegalArgumentException se a {@code chave} È {@code null}
+     * @return a maior chave na √°rvore menor ou igual √† {@code chave}
+     * @throws NoSuchElementException se a √°rvore est√° vazia
+     * @throws IllegalArgumentException se a {@code chave} √© {@code null}
      */
     public Chave piso(Chave chave)
     {
         if (chave == null)
-        	throw new IllegalArgumentException("A chave fornecida È null!");
+        	throw new IllegalArgumentException("A chave fornecida √© null!");
         
         if (vazia()) 
-        	throw new NoSuchElementException("A ·rvore est· vazia!");
+        	throw new NoSuchElementException("A √°rvore est√° vazia!");
         
         No x = piso(raiz, chave);
         
@@ -403,20 +403,20 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
 
     
     /**
-     * Retorna a menor chave na ·rvore que È maior ou igual ‡ {@code chave} fornecida.
+     * Retorna a menor chave na √°rvore que √© maior ou igual √† {@code chave} fornecida.
      *
      * @param  chave a chave fornecida
-     * @return a menor chave na ·rvore maior ou igual ‡ {@code chave}
-     * @throws NoSuchElementException se a ·rvore est· vazia
-     * @throws IllegalArgumentException se a {@code chave} È {@code null}
+     * @return a menor chave na √°rvore maior ou igual √† {@code chave}
+     * @throws NoSuchElementException se a √°rvore est√° vazia
+     * @throws IllegalArgumentException se a {@code chave} √© {@code null}
      */
     public Chave topo(Chave chave)
     {
         if (chave == null) 
-        	throw new IllegalArgumentException("A chave fornecida È null!");
+        	throw new IllegalArgumentException("A chave fornecida √© null!");
 
         if (vazia())
-        	throw new NoSuchElementException("A ·rvore est· vazia!");
+        	throw new NoSuchElementException("A √°rvore est√° vazia!");
         
         No x = topo(raiz, chave);
         
@@ -451,20 +451,20 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
     
     
     /**
-     * Retorna o n˙mero de nÛs na ·rvore cujas chaves s„o estritamente menores do que {@code chave}.
+     * Retorna o n√∫mero de n√≥s na √°rvore cujas chaves s√£o estritamente menores do que {@code chave}.
      *
      * @param  chave a chave fornecida
-     * @return o n˙mero de nÛs na ·rvore cujas chaves s„o estritamente menores do que {@code chave}
-     * @throws IllegalArgumentException se {@code chave} È {@code null}
+     * @return o n√∫mero de n√≥s na √°rvore cujas chaves s√£o estritamente menores do que {@code chave}
+     * @throws IllegalArgumentException se {@code chave} √© {@code null}
      */
     public int rank(Chave chave) {
-    	/* O aluno deve fazer como exercÌcio. */
+    	/* O aluno deve fazer como exerc√≠cio. */
     	return 0;
     } 
 
-    // N˙mero de chaves na sub·rvore que s„o estritamente menores do que chave.
+    // N√∫mero de chaves na sub√°rvore que s√£o estritamente menores do que chave.
     private int rank(Chave chave, No x) {
-    	/* O aluno deve fazer como exercÌcio. */
+    	/* O aluno deve fazer como exerc√≠cio. */
     	return 0;
     } 
     
