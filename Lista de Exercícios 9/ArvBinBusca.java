@@ -467,7 +467,42 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
     	/* O aluno deve fazer como exercício. */
     	return 0;
     } 
+
     
+    // exercicio 3
+    
+    public void transformaArvBinBusca(Arvbin<Chave> arvoreBinaria) {
+    	raiz = andaPelaArvore(arvoreBinaria);
+    }
+    
+    private No andaPelaArvore(Arvbin<Chave> arvore) {
+    	System.out.println();
+    	raiz = transformaArvBinBusca(raiz, arvore);
+    	this.mostra();
+    	Arvbin<Chave> esq = arvore.retornaEsq();
+    	Arvbin<Chave> dir = arvore.retornaDir();
+    	
+    	if(esq != null)
+    		raiz = andaPelaArvore(esq);
+    	
+    	if(dir != null)
+    		raiz = andaPelaArvore(dir);
+    	
+    	return raiz;
+    }
+    
+    private No transformaArvBinBusca(No x, Arvbin<Chave> arvore) {
+    	if(x == null)
+    		return new No(arvore.retornaVal());
+    	
+    	if(arvore.retornaVal().compareTo(x.chave) < 0)
+    		x.esq = transformaArvBinBusca(x.esq, arvore);
+    	
+    	else if(arvore.retornaVal().compareTo(x.chave) > 0)
+    		x.dir = transformaArvBinBusca(x.dir, arvore);
+    	
+    	return x;
+    }
     
     // exercicio 4
     
@@ -512,6 +547,8 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
     	}
     	
     }
+    
+    // exercicio 5
     
     
 }
