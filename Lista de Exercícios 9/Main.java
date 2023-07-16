@@ -3,6 +3,7 @@ public class Main
 {
 	public static void main(String args[])
 	{
+		// teste ex 4
 		
 		ArvBinBusca<Integer, String> arvoreBinaria = new ArvBinBusca<>();
 		
@@ -28,6 +29,11 @@ public class Main
 		System.out.println(arvoreBinaria.removeForaIntervalo(31,40));
 		arvoreBinaria.mostra();
 		
+		System.out.println();
+		System.out.println(arvoreBinaria.obtemAncestralComum(28,30));
+		
+		// teste ex 3
+		
 		/*
 		Arvbin<Integer> a1 = new Arvbin<Integer>(1),
 				a2 = new Arvbin<Integer>(2),
@@ -51,6 +57,9 @@ public class Main
 		
 		System.out.println(arvore.obtemAncestralComum(2, 3));
 		*/
+		
+		// teste ex 5
+		
 		
 		
 		

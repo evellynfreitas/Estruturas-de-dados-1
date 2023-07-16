@@ -549,6 +549,41 @@ public class ArvBinBusca<Chave extends Comparable<Chave>, Valor>
     }
     
     // exercicio 5
+
+    public Chave obtemAncestralComum(Chave primeiraChave, Chave segundaChave) {
+    	return obtemAncestralComum(primeiraChave, segundaChave, raiz);
+    }
+    
+    private Chave obtemAncestralComum(Chave primeiraChave, Chave segundaChave, No no) {
+    	
+    	Chave atual = no.chave;
+    	
+    	if(primeiraChave.compareTo(atual) < 0 && segundaChave.compareTo(atual) < 0 && no.esq!=null)
+    		return obtemAncestralComum(primeiraChave, segundaChave, no.esq);
+    	
+    	else if(primeiraChave.compareTo(atual) > 0 && segundaChave.compareTo(atual) > 0 && no.dir!=null)
+    		return obtemAncestralComum(primeiraChave, segundaChave, no.dir);
+    	
+    	else if( (primeiraChave.compareTo(atual) > 0 && segundaChave.compareTo(atual) < 0) || (primeiraChave.compareTo(atual) < 0 && segundaChave.compareTo(atual) > 0) )
+    		return atual;
+    	
+    	else
+    		return atual;
+    	
+    }
+    
+    
+    /*
+    private No obtemNo(Chave chave, No no) {
+    	if(raiz.chave.compareTo(chave) == 0)
+    		return raiz;
+    	else if(raiz.chave.compareTo(chave)>0)
+    		return obtemNo(chave, no.esq);
+    	else
+    		return obtemNo(chave, no.dir);
+    }
+    */
+   
     
     
 }
